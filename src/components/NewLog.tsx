@@ -23,7 +23,6 @@ export function NewLog() {
 	const log = useLogStore((state) => state.log);
 	const setLog = useLogStore((state) => state.setLog);
 	const setLogs = useLogStore((state) => state.setLogs);
-	const logs = useLogStore((state) => state.setLogs);
 	const supabase = createClientComponentClient();
 
 	const closeDialog = () => {
@@ -41,7 +40,6 @@ export function NewLog() {
 	const submitLog = async () => {
 		try {
 			validateLog();
-      const date = log.date as Date
 			const { error } = await supabase
 				.from("logs")
 				.upsert({ ...log, date: dayjs(log.date).format("YYYY-MM-DD") })
@@ -53,7 +51,7 @@ export function NewLog() {
 					title: "Successfully create log",
 					description: `${
 						log.hour
-					} hours in ${date.toDateString()}`,
+					} hours in ${log.date.toDateString()}`,
 				});
 				closeDialog();
 			} else {
