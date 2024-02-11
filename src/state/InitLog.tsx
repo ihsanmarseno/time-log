@@ -1,6 +1,6 @@
 "use client";
 import { ILog, IResultLog, useLogStore } from "@/store";
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 export default function InitLog({ logs }: { logs: IResultLog[] }) {
 	const initRef = useRef<boolean>();

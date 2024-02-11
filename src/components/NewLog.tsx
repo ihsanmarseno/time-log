@@ -68,7 +68,7 @@ export function NewLog() {
 				description: e as string,
 			});
 		}
-	};
+	};	
 
 	return (
 		<Dialog>

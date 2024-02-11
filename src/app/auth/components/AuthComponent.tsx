@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
@@ -9,14 +9,13 @@ export default function AuthComponent() {
   const supabase = createClientComponentClient();
 
   const handleLogin = () => {
-      supabase.auth.signInWithOAuth({
-        provider: "github",
-        options: {
-            redirectTo: `${location.origin}/auth/callback`
-        }
-      })
-  }
-
+    supabase.auth.signInWithOAuth({
+      provider: "github",
+      options: {
+        redirectTo: `${location.origin}/auth/callback`,
+      },
+    });
+  };
 
   return (
     <div className="p-5 ">
